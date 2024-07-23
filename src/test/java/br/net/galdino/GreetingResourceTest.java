@@ -8,6 +8,16 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 class GreetingResourceTest {
+
+    @Test
+    void testGreetingEndpoint() {
+        given()
+          .when().get("/hello/greeting/John")
+          .then()
+             .statusCode(200)
+             .body(is("hello John"));
+    }
+
     @Test
     void testHelloEndpoint() {
         given()
